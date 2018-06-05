@@ -1,0 +1,161 @@
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WebGL Data</title>
+</head>
+
+<body>
+  <h1>WebGL Data</h1>
+
+  <section>
+    <h2>Indices</h2>
+
+    <ul>
+      <li>Numerical values that label vertices.</li>
+      <li>Used to identify the vertices.</li>
+      <li>They are used to draw meshes in WebGL.</li>
+    </ul>
+
+    <h2>Arrays</h2>
+
+    <ul>
+      <li>There are no predefined methods in WebGL to render vertices directly.</li>
+      <li>We store vertices manually in JavaScript arrays.</li>
+      <li>We pass them to WebGL rendering pipeline using index buffer.</li>
+    </ul>
+
+    <h2>Buffers</h2>
+
+    <ul>
+      <li>Memory areas of WebGL that hold the data.</li>
+      <li>There are various buffers.</li>
+      <li>Vertex Buffer and Index Buffer: used to describe and process the geometry.</li>
+    </ul>
+
+    <h3>Vertex Buffer</h3>
+
+    <ul>
+      <li>Stores data about the vertices.</li>
+    </ul>
+
+    <h3>Index Buffer</h3>
+
+    <ul>
+      <li>Stores data about the indices.</li>
+    </ul>
+
+    <h3>Frame Buffer</h3>
+
+    <ul>
+      <li>Portion of graphics memory that hold the scene data.</li>
+      <li>
+        <p>Contains:</p>
+        <ul>
+          <li>width & height of the surface in pixels</li>
+          <li>color of each pixel</li>
+          <li>depth buffer</li>
+          <li>stencil buffer</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>Mesh</h3>
+
+    <p>Used to draw 2D or 3D objects</p>
+
+    <p>Types: (mode)</p>
+    <ul>
+      <li>Points</li>
+      <li>Lines</li>
+      <li>Triangles</li>
+    </ul>
+
+    <h3>Shaders</h3>
+
+    <p>WebGL uses Embedded System Shader Language (ESSL) that runs on GPU.</p>
+    <p>We use triangles to construct meshes</p>
+    <p>The information about these triangles should be transferred from CPU to GPU.</p>
+    <p><strong>It is a snippet that implements algorithms to get the pixels of a mesh.</strong></p>
+
+    <ul>
+      <li>Shaders are programs for GPU.</li>
+      <li>We define in the shaders how the vertices, transforms, materials, lights and camera interact with one aonther.</li>
+    </ul>
+
+    <code>
+<pre>
+              +
+             /[]\
+            /[][]\
+           /[][][]\
+          + ------ +
+
+          [] Fragment Shader
+          + Vertex Shader
+</pre>
+    </code>
+
+    <h4>Vertex Shader</h4>
+
+      <ul>
+        <li>Program called on every vertex.</li>
+        <li>Used to move / transform the geometry.</li>
+        <li>Handles vertext data: coordinates, normals, colors and textures.</li>
+      </ul>
+
+      <p>Tasks:</p>
+      <ul>
+        <li>Vertex transformation.</li>
+        <li>Normal transformation and normalization.</li>
+        <li>Texture coordinate generation.</li>
+        <li>Texture coordinate transformation.</li>
+        <li>Lighting.</li>
+        <li>Color material application.</li>
+      </ul>
+
+    <h4>Fragment Shader</h4>
+
+    <ul>
+      <li>A Fragment is the surface of each mesh triangle.</li>
+      <li>Fragment Shader is the code that runs on every pixel on each fragment.</li>
+      <li>It is written to calculate nd fill the color on <strong>individual</strong> pixels.</li>
+    </ul>
+
+    <p>Tasks:</p>
+
+    <ul>
+      <li>Operations on interpolated values.</li>
+      <li>Texture access.</li>
+      <li>Texture application.</li>
+      <li>Fog.</li>
+      <li>Color sum.</li>
+    </ul>
+
+    <h2>ES SL Variables</h2>
+
+    <h3>Attributes</h3>
+
+    <ul>
+      <li>Hold the input values of the vertex shader program.</li>
+      <li>They point to the vertex buffer object that contains per-vertex data.</li>
+      <il>Each time the vertex shader is invoked, the values of these attributes vary.</li>
+    </ul>
+
+    <h3>Uniforms</h3>
+
+    <ul>
+      <li>These are variables that hold the input data that is common for both vertext and fragment shaders: light position, texture, coordinates and color.</li>
+    </ul>
+
+    <h3>Varyings</h3>
+
+    <ul>
+      <li>Variables that are used to pass the data from the vertex shader to the fragment shader.</li>
+    </ul>
+  </section>
+</body>
+
+</html>

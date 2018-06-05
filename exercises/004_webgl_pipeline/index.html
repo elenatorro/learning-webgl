@@ -1,0 +1,67 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>WebGL Pipeline</title>
+</head>
+<body>
+  <h1>WebGL Pipeline</h1>
+
+  <ol>
+    <li>Initialize WebGL</li>
+    <li>Create Arrays (geometry information)</li>
+    <li>Vertex Buffer and Index Buffer (use previous arrays)</li>
+    <li>Create, compile and link the Shaders</li>
+    <li>Create attributes and associate them with buffer objects using JavaScript.</li>
+    <li>Create uniforms and associate them using JavaScript.</li>
+    <li>Create Transformation Matrix using JavaScript.</li>
+  </ol>
+
+  <h2>Steps:</h2>
+
+  <h3>1. Vertex Shader</h3>
+
+  <ul>
+    <li>We invoke "drawElements" and "drawArray" methods.</li>
+    <li>The vertex shader is executed for each vertex provided in the vertex buffer object.</li>
+    <li>It calculates the position of each vertex of a primitive polygon.</li>
+    <li>It stores it in the varying gl_position.</li>
+    <li>It calculates other attributes asociated with a vertex (color, texture coords, vertices)</li>
+  </ul>
+
+  <h3>2. Primitive Assembly</h3>
+
+  <ul>
+    <li>The triangles are assembled and passed to the rasterizer.</li>
+  </ul>
+
+  <h3>3. Rasterization</h3>
+
+  <ul>
+    <li>The pixels in the final image of the primitive are determined.</li>
+    <li>1. Culling: Process to discard triangle with improper orientation.</li>
+    <li>3. Clipping: Clips triangle outside the view area.</li>
+  </ul>
+
+  <h3>4. Fragment Shader</h3>
+
+  <ul>
+    <li>Gets varyings and primitives from the rasterization phase.</li>
+    <li>Calculates the color values for each pixel between the vertices.</li>
+  </ul>
+
+  <h3>5. Fragment Operations</h3>
+
+  <ul>
+    <li>Depth, color buffer blend, dithering.</li>
+  </ul>
+
+  <h3>6. Frame Buffer</h3>
+
+  <ul>
+    <li>Final destination.</li>
+    <li>Portion of graphics memory that hold the scene data.</li>
+  </ul>
+</body>
+</html>
